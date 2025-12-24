@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+.venv/
+venv/
+
+# Data
+data/
+datasets/
+*.zip
+*.tar
+*.tar.gz
+
+# Model checkpoints
+*.pth
+*.pt
+checkpoints/
+weights/
+
+# Logs
+logs/
+wandb/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
