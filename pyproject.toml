@@ -1,20 +1,33 @@
 [project]
-name = "reid"
+name = "reid-sae"
 version = "0.1.0"
-description = "Add your description here"
+description = "Exploring re-identification tasks with sparse autoencoders"
 readme = "README.md"
+authors = [
+    { name = "Sattwik Kumar Sahu", email = "sattwik21@iiserb.ac.in" },
+    { name = "Aditya Sinha", email = "adityas22@iiserb.ac.in" },
+]
 requires-python = ">=3.13"
 dependencies = [
     "grad-cam>=1.5.5",
     "matplotlib>=3.10.8",
-    "nbformat>=5.10.4",
     "numpy>=2.3.5",
     "opencv-python>=4.11.0.86",
     "pandas>=2.3.3",
     "pillow>=12.0.0",
-    "seaborn>=0.13.2",
     "torch>=2.9.1",
     "torchvision>=0.24.1",
     "transformers>=4.57.3",
-    "wandb>=0.23.1",
 ]
+
+[project.scripts]
+reid-sae = "reid_sae:main"
+
+[build-system]
+requires = ["uv_build>=0.9.5,<0.10.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = ["jupyter>=1.1.1", "ruff>=0.14.13"]
+log = ["wandb>=0.24.0"]
+plot = ["matplotlib>=3.10.8", "seaborn>=0.13.2"]
