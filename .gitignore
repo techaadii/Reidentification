@@ -179,6 +179,9 @@ pyrightconfig.json
 /notebooks
 /datasets
 /data
+/outputs
+/results
+
 
 # Ignore model weights 
 **/*.{pt,pth}

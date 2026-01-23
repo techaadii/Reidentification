@@ -1,6 +1,5 @@
 import os
 from glob import glob
-from pathlib import Path
 
 import torch
 from torchvision.io.image import read_image
@@ -12,13 +11,13 @@ from reid_sae.utils.data._typing import Veri776Sample
 class CarlaVeriDataset(torch.utils.data.Dataset[Veri776Sample]):
     """
     This class inherits from the torch Dataset class and helps creating the batches of dataset as per requirement
-    
-    This is the custom class to load the Vehcile Reidentification dataset.\
+
+    This is the custom class to load the Vehcile Reidentification dataset.
     This class handles the infamous vehicle reidentification dataset called the Veri- 776
     TODO : Explain the input and output, add the attributes of the class
     """
 
-    def __init__(self, dir_path: str, transform: v2.Compose) -> None:
+    def __init__(self, dir_path: str, transform: v2.Compose = v2.Identity()) -> None:
         self.image_dir: str = dir_path
         self.transform: v2.Compose = transform
 
@@ -74,10 +73,8 @@ class CarlaVeriDataset(torch.utils.data.Dataset[Veri776Sample]):
         transformed_image: torch.Tensor = self.transform(image)
 
         return Veri776Sample(
-            image=image,
-            transformed_image=transformed_image,
+            image=transformed_image,
             pid=pid,
             cam_id=camid,
             original_pid=original_pid,
-            path=Path(path),
         )
